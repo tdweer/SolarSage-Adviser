@@ -7,7 +7,12 @@ const projectRoutes = require('./routes/projects')
 //express app
 const app = express()
 
+
+
 //middleware
+app.use(express.json())
+
+
 app.use((req,res,next) => {
     console.log(req.path, req.method)
     next()
@@ -15,6 +20,7 @@ app.use((req,res,next) => {
 
 // //routes
 app.use('/api/projects',projectRoutes)
+
 
 
 
