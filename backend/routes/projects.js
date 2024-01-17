@@ -1,5 +1,5 @@
 const express = require('express')
-
+const Project = require('../models/projectsModel')
 const router = express.Router()
 
 //get all projects
@@ -13,8 +13,15 @@ router.get('/:id', (req, res) => {
 })
 
 //post a new project
-router.post('/', (req, res) => {
-    res.json({ message: 'Post a new project '})
+router.post('/', async (req, res) => {
+    const { title, load, reps } = req.body
+
+    try{
+        const project = await Project.create({title, load, reps})
+        res.status(200).json(project)
+    }catch(error) {
+       res.status(400).json({ error: error.message })
+    }
 })
 
 //delete a project
