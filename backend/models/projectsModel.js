@@ -1,17 +1,18 @@
 const mongoose = require('mongoose')
-const schema = new mongoose.Schema
+
+const schema =  mongoose.Schema
 
 const projectSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        unique: true,
-        trim: true
     },
+
     reps: {
         type: Number,
-        default: 0
+        required: true
     },
+    
     load: {
         type: Number,
         required: true

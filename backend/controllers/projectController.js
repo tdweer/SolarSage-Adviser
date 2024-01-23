@@ -1,19 +1,26 @@
 const Project = require('../models/projectsModel')
+const mongoose = require('mongoose')
 
 //get all project
-const getProjects = async (req,res) => {
-    const getProjects = await projects.find({}).sort({createdAt: -1})
-    res.status(200).json(project)
+const getProjects = async (req, res) => {
+    const Projects = await projects.find({}).sort({createdAt: -1})
+
+    res.status(200).json(projects)
 }
 
 
 //get a single project
-const getProject = async (req,res) => {
+const getProject = async (req, res) => {
     const { id } = req.params
+    
+if (!mongoose.Types.ObjectId.isValid(id)){
+    return res.status(404).json({error: 'no such project'})
+}
 
     const project = await Project.findById(id)
-    if(project) {
-        return res.status(404).json({ message: 'Project not found'})
+
+    if(!project) {
+        return res.status(404).json({error: 'Project not found'})
     }
 
     res.status(200).json(project)
@@ -23,7 +30,7 @@ const getProject = async (req,res) => {
 
 
 //create a new project
-const createProject = async (req,res) => {
+const createProject = async (req, res) => {
     const { title, load, reps } = req.body
     //add doc to db
     try{
