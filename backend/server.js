@@ -1,42 +1,39 @@
 require('dotenv').config()
 
-
 const express = require('express')
 const mongoose = require('mongoose')
 const projectRoutes = require('./routes/projects')
+const clientRoutes = require('./routes/clients')
+const staffRoutes = require('./routes/staff')
+const salesRoutes = require('./routes/sales')
 
-//express app
+
+// express app
 const app = express()
 
-
-
-//middleware
+// middleware
 app.use(express.json())
 
-
-app.use((req,res,next) => {
-    console.log(req.path, req.method)
-    next()
+app.use((req, res, next) => {
+  console.log(req.path, req.method)
+  next()
 })
 
-//connect to mongodb
+// routes
+app.use('/api/projects', projectRoutes)
+app.use('/api/clients', clientRoutes)
+app.use('/api/staff', staffRoutes)
+app.use('/api/sales', salesRoutes)
+
+// connect to db
 mongoose.connect(process.env.MONGO_URI)
-    .then(() => {
-        //listen for requests
-        app.listen(process.env.PORT, () => {
-         console.log('Connected to the db & listening on port, ', process.env.PORT);
-})
-
+  .then(() => {
+    console.log('connected to database')
+    // listen to port
+    app.listen(process.env.PORT, () => {
+      console.log('listening for requests on port', process.env.PORT)
     })
-    .catch((err) => {
-        console.log(err)
-    })
-
-
-// //routes
-app.use('/api/projects',projectRoutes)
-
-
-
-
-
+  })
+  .catch((err) => {
+    console.log(err)
+  }) 
