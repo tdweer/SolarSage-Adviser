@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Route, BrowserRouter, Routes} from 'react-router-dom';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 
 //pages and components
