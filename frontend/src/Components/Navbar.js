@@ -1,16 +1,16 @@
-import { link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-    return (
-        <header>
-            <div className="container">
-                <link to ="/">
-                    <h1>Solar Sage Advisor</h1>
-                </link>
-            </div>
-        </header>       
-    )
+
+  return (
+    <header>
+      <div className="container">
+        <Link to="/">
+          <h1>Solar-Sage Advisor</h1>
+        </Link>
+      </div>
+    </header>
+  )
 }
 
-
-export default Navbar;
+export default Navbar
