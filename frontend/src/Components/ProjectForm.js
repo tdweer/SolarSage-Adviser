@@ -1,6 +1,9 @@
 import { useState } from 'react'
+import { useProjectsContext } from "../hooks/useProjectsContext"
 
 const ProjectForm = () => {
+    const { dispatch } = useProjectsContext()
+
    const [pid, setPid] = useState('')
    const [title, setTitle] = useState('')
    const [address, setAddress] = useState('')
@@ -30,6 +33,7 @@ const ProjectForm = () => {
         setDescription('')
         setError(null)
         console.log('Project Added',json)
+        dispatch({type: 'CREATE_PROJECT', payload: json})
 }
    }
    return (
