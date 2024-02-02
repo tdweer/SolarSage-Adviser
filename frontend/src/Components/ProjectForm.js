@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useProjectsContext } from "../hooks/useProjectsContext"
 
+
 const ProjectForm = () => {
     const { dispatch } = useProjectsContext()
 
@@ -9,6 +10,7 @@ const ProjectForm = () => {
    const [address, setAddress] = useState('')
    const [description, setDescription] = useState('')
    const [error, setError] = useState(null)
+   const [emptyFields, setEmptyFields ] = useState([])
 
    const handleSubmit = async (e) => {
     e.preventDefault()
@@ -25,6 +27,7 @@ const ProjectForm = () => {
 
     if (!response.ok){
         setError(json.error)
+        setEmptyFields(json.emptyFields)
     }
     if (response.ok){
         setTitle('')
@@ -32,6 +35,7 @@ const ProjectForm = () => {
         setAddress('')
         setDescription('')
         setError(null)
+        setEmptyFields([])
         console.log('Project Added',json)
         dispatch({type: 'CREATE_PROJECT', payload: json})
 }
@@ -45,6 +49,7 @@ const ProjectForm = () => {
             type="number"
             onChange={(e) => setPid(e.target.value)}
             value={pid}
+            className={emptyFields.includes('pid') ? 'error' : ''}
         />
 
         <label className='lbl'>Project Title:</label>
@@ -52,6 +57,7 @@ const ProjectForm = () => {
             type="text"
             onChange={(e) => setTitle(e.target.value)}
             value={title}
+            className={emptyFields.includes('title') ? 'error' : ''}
         />
 
         <label className='lbl'>Address:</label>
@@ -59,6 +65,7 @@ const ProjectForm = () => {
             type="text"
             onChange={(e) => setAddress(e.target.value)}
             value={address}
+            className={emptyFields.includes('address') ? 'error' : ''}
         />
 
         < label className='lbl'>Description:</label>
@@ -66,6 +73,7 @@ const ProjectForm = () => {
             type="text"
             onChange={(e) => setDescription(e.target.value)}
             value={description}
+            className={emptyFields.includes('description') ? 'error' : ''}
         />
     	
         <button>Add Project</button>

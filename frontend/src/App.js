@@ -1,8 +1,11 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, } from 'react-router-dom'
 
 // pages & components
 import Home from './pages/Home'
 import Navbar from './Components/Navbar'
+import Dashboard from './pages/Dashboard'
+import Advisor from './pages/Advisor'
+import Projects from './pages/Projects'
 
 function App() {
 
@@ -16,6 +19,20 @@ function App() {
               path="/" 
               element={<Home />} 
             />
+            <Route 
+              path="/advisor" 
+              element={<Advisor />}
+            />
+            <Route 
+              path="/dashboard" 
+              element={<Dashboard />}
+            />
+            <Route 
+              path="/projects" 
+              element={<Projects />}
+            />
+
+            
           </Routes>
         </div>
       </BrowserRouter>
