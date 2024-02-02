@@ -8,6 +8,7 @@ import Advisor from './pages/Advisor'
 import Projects from './pages/Projects'
 import Clients from './pages/Clients'
 import Staff from './pages/Staff'
+import Sales from './pages/Sales'
 
 function App() {
 
@@ -40,6 +41,10 @@ function App() {
             <Route 
               path="/staff" 
               element={<Staff />}
+            />
+             <Route 
+              path="/sales" 
+              element={<Sales />}
             />
 
             
