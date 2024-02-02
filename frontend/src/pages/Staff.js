@@ -5,27 +5,27 @@ import { useEffect, useState } from 'react'
 import StaffDetails from "../Components/StaffDetails"
 
 
-const Staffs = () => {
-    const [staffs, setStaffs] = useState(null)
+const Staff = () => {
+    const [staff, setStaff] = useState(null)
 
     useEffect (() => {
-        const fetchStaffs = async() => {
-          const response = await fetch('/api/staffs')
+        const fetchStaff = async() => {
+          const response = await fetch('/api/staff')
           const json  = await response.json()
     
           if (response.ok) {
-            setStaffs(json)
+            setStaff(json)
         }
        }
-       fetchStaffs()
+       fetchStaff()
       },[])
     
     
       return (
-        <div className='staffs'>
-          <div className='staffs'>
-          {staffs && staffs.map((client) => (
-            <StaffDetails key={client._id} client={client}/>
+        <div className='staff'>
+          <div className='staff'>
+          {staff && staff.map((staff) => (
+            <StaffDetails key={staff._id} staff={staff}/>
     
           ))}
     
@@ -39,5 +39,5 @@ const Staffs = () => {
       );
     };
     
-    export default Staffs;
+    export default Staff;
     

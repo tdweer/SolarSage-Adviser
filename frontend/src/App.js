@@ -7,7 +7,7 @@ import Dashboard from './pages/Dashboard'
 import Advisor from './pages/Advisor'
 import Projects from './pages/Projects'
 import Clients from './pages/Clients'
-import Staffs from './pages/Staff'
+import Staff from './pages/Staff'
 
 function App() {
 
@@ -38,8 +38,8 @@ function App() {
               element={<Clients />}
             />
             <Route 
-              path="/staffs" 
-              element={<Staffs />}
+              path="/staff" 
+              element={<Staff />}
             />
 
             

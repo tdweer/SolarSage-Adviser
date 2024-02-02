@@ -10,7 +10,7 @@ const Dashboard = () => {
       <Link to="/clients" className='projectbttn'> {/* Link to the ProjectsPage component */}
                 <button>Clients</button>
       </Link>
-      <Link to="/staffs" className='projectbttn'> {/* Link to the ProjectsPage component */}
+      <Link to="/staff" className='projectbttn'> {/* Link to the ProjectsPage component */}
                 <button>Staff</button>
       </Link>
     </div>
