@@ -1,7 +1,6 @@
 import { useProjectsContext } from "../hooks/useProjectsContext"
 
-//date fns
-// import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+
 
 const ProjectDetails = ({ project }) => {
     const { dispatch } = useProjectsContext()
@@ -18,11 +17,7 @@ const ProjectDetails = ({ project }) => {
                 dispatch({type: 'DELETE_PROJECT', payload: json})
             }
 
-    //editproject
-    //      const handleEdit = async () => {
 
-    //     console.log('Edit clicked for project ID:', project._id);
-    // };
 }
     return (
         <div className="project-details">

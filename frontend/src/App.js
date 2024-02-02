@@ -6,6 +6,8 @@ import Navbar from './Components/Navbar'
 import Dashboard from './pages/Dashboard'
 import Advisor from './pages/Advisor'
 import Projects from './pages/Projects'
+import Clients from './pages/Clients'
+import Staffs from './pages/Staff'
 
 function App() {
 
@@ -31,6 +33,16 @@ function App() {
               path="/projects" 
               element={<Projects />}
             />
+            <Route 
+              path="/clients" 
+              element={<Clients />}
+            />
+            <Route 
+              path="/staffs" 
+              element={<Staffs />}
+            />
+
+            
 
             
           </Routes>

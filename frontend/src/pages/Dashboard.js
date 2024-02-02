@@ -6,7 +6,13 @@ const Dashboard = () => {
     <div>
       <Link to="/Projects" className='projectbttn'> {/* Link to the ProjectsPage component */}
                 <button>Projects</button>
-            </Link>
+      </Link>
+      <Link to="/clients" className='projectbttn'> {/* Link to the ProjectsPage component */}
+                <button>Clients</button>
+      </Link>
+      <Link to="/staffs" className='projectbttn'> {/* Link to the ProjectsPage component */}
+                <button>Staff</button>
+      </Link>
     </div>
   );
 };
