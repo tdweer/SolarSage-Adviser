@@ -4,11 +4,11 @@ import { useProjectsContext } from "../hooks/useProjectsContext"
 //components
 import ProjectDetails from "../Components/ProjectDetails"
 import ProjectForm from "../Components/ProjectForm"
-//import { ProjectsContext } from "../context/ProjectsContext"
+
 
 
 const Projects = () => {
-    // const [projects, setProjects] = useState(null)
+
     const  { projects, dispatch } = useProjectsContext()
 
     useEffect(() => {

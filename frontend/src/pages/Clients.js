@@ -1,13 +1,13 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
-
+import { useEffect } from 'react'
+import { useClientsContext } from '../hooks/useClientsContext'
 
 //components
 import ClientDetails from "../Components/ClientDetails"
+import ClientForm from '../Components/ClientForm'
 
 const Clients = () => {
-  const [clients, setClients] = useState(null)
-  // const { Clients, dispatch} = useProjectsContext()
+
+  const { clients, dispatch} = useClientsContext()
 
   useEffect (() => {
     const fetchClients = async() => {
@@ -15,29 +15,25 @@ const Clients = () => {
       const json  = await response.json()
 
       if (response.ok) {
-        setClients(json)
+        dispatch({type: 'SET_CLIENTS', payload:json})
     }
    }
     fetchClients()
-  },[])
+  },[dispatch])
 
 
   return (
-    <div className='clients'>
-      <div className='clients'>
+    <div className='Projects'>
+      <div className='projects'>
       {clients && clients.map((client) => (
-        <ClientDetails key={client._id} client={client}/>
+        <ClientDetails client = {client} key= {client._id}/>
 
       ))}
-
-
-
-
       </div>
-    
+    <ClientForm/>
   
     </div>
-  );
-};
+  )
+}
 
-export default Clients;
+export default Clients
