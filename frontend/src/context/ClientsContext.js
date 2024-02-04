@@ -8,13 +8,13 @@ export const clientsReducer = (state, action) => {
             return {
                 clients: action.payload
             }
-        case 'CREATE_CLIENTS':
+        case 'CREATE_CLIENT':
             return {
                 clients: [action.payload, ...state.clients]
             }
-        case 'DELETE_CLIENTS':
+        case 'DELETE_CLIENT':
             return {
-                clients: state.clients.filter((clients) => clients._id !== action.payload._id)
+                clients: state.clients.filter((client) => client._id !== action.payload._id)
             }
         default:
             return state
@@ -24,12 +24,7 @@ export const clientsReducer = (state, action) => {
 export const ClientsContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(clientsReducer,{
         clients: null
-
-    
     })
-
-    
-
     return (
         <ClientsContext.Provider value = {{ ...state, dispatch }} >
             { children }

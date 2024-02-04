@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 //components
 import StaffDetails from "../Components/StaffDetails"
-
+import StaffForm from '../Components/StaffForm';
 
 const Staff = () => {
     const [staff, setStaff] = useState(null)
@@ -22,8 +22,8 @@ const Staff = () => {
     
     
       return (
-        <div className='staff'>
-          <div className='staff'>
+        <div className='Projects'>
+          <div className='projects'>
           {staff && staff.map((staff) => (
             <StaffDetails key={staff._id} staff={staff}/>
     
@@ -33,7 +33,7 @@ const Staff = () => {
     
     
           </div>
-        
+        <StaffForm/>
       
         </div>
       );

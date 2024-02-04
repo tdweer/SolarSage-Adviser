@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 
 //components
 import SalesDetails from "../Components/SalesDetails"
+import SalesForm from "../Components/SalesForm"
 
 
 const Sales = () => {
@@ -22,8 +23,8 @@ const Sales = () => {
     
     
       return (
-        <div className='sales'>
-          <div className='sales'>
+        <div className='Projects'>
+          <div className='projects'>
           {sales && sales.map((sales) => (
             <SalesDetails key={sales._id} sales={sales}/>
     
@@ -34,7 +35,7 @@ const Sales = () => {
     
           </div>
         
-      
+            <SalesForm />
         </div>
       );
     };
