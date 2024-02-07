@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import { useProjectsContext } from "../hooks/useProjectsContext"
+import  { useStaffContext} from "../hooks/useStaffContext"
 
 
 const StaffForm = () => {
-    const { dispatch } = useProjectsContext()
-
-   const [staffid, setstaffid] = useState('')
-   const [name, setname] = useState('')
+    const { dispatch } = useStaffContext()
+   const [staffid, setStaffid] = useState('')
+   const [name, setName] = useState('')
    const [address, setAddress] = useState('')
    const [contact, setContact] = useState('')
    const [error, setError] = useState(null)
@@ -30,14 +29,14 @@ const StaffForm = () => {
         setEmptyFields(json.emptyFields)
     }
     if (response.ok){
-        setname('')
-        setstaffid('')
+        setName('')
+        setStaffid('')
         setAddress('')
         setContact('')
         setError(null)
         setEmptyFields([])
         console.log('Member Added',json)
-        dispatch({type: 'ADD_MEMBER', payload: json})
+        dispatch({type: 'CREATE_STAFF', payload: json})
 }
    }
    return (
@@ -47,7 +46,7 @@ const StaffForm = () => {
         <label className='lbl'>Member ID:</label>
         <input 
             type="number"
-            onChange={(e) => setstaffid(e.target.value)}
+            onChange={(e) => setStaffid(e.target.value)}
             value={staffid}
             className={emptyFields.includes('staffid') ? 'error' : ''}
         />
@@ -55,7 +54,7 @@ const StaffForm = () => {
         <label className='lbl'>Member Name:</label>
         <input 
             type="text"
-            onChange={(e) => setname(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
             value={name}
             className={emptyFields.includes('name') ? 'error' : ''}
         />

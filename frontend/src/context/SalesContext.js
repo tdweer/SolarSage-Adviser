@@ -6,15 +6,15 @@ export const salesReducer = (state, action) => {
     switch(action.type) {
         case 'SET_SALES':
             return {
-                SaleS: action.payload
+                sales: action.payload
             }
         case 'CREATE_SALE':
             return {
-                Sales: [action.payload, ...state.sales]
+                sales: [action.payload, ...state.sales]
             }
         case 'DELETE_SALE':
             return {
-                Sales: state.SaleS.filter((Sale) => Sale._id !== action.payload._id)
+                sales: state.sales.filter((sale) => sale._id !== action.payload._id)
             }
         default:
             return state
@@ -23,7 +23,7 @@ export const salesReducer = (state, action) => {
 
 export const SalesContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(salesReducer,{
-        Sales: null
+        sales: null
 
     
     })

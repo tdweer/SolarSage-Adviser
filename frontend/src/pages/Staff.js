@@ -1,12 +1,13 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useStaffContext } from '../hooks/useStaffContext';
 
 //components
 import StaffDetails from "../Components/StaffDetails"
 import StaffForm from '../Components/StaffForm';
 
 const Staff = () => {
-    const [staff, setStaff] = useState(null)
+    const { staff, dispatch} = useStaffContext()
 
     useEffect (() => {
         const fetchStaff = async() => {
@@ -14,7 +15,7 @@ const Staff = () => {
           const json  = await response.json()
     
           if (response.ok) {
-            setStaff(json)
+            dispatch({type: 'SET_STAFF', payload: json})
         }
        }
        fetchStaff()

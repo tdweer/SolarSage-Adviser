@@ -127,3 +127,8 @@ input.error {
   border-radius: 5px;
   cursor: pointer;
 }
+
+/* deposits */
+.deposits{
+  color: #1aac83;
+}

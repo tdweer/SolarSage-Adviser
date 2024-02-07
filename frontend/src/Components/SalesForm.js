@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { useProjectsContext } from "../hooks/useProjectsContext"
+import { useSalesContext } from "../hooks/useSalesContext"
 
 
 const SalesForm = () => {
-    const { dispatch } = useProjectsContext()
+    const { dispatch } = useSalesContext()
 
    const [salesid, setSalesid] = useState('')
    const [date, setDate] = useState('')
@@ -40,11 +40,10 @@ const SalesForm = () => {
         setProductinfo('')
         setNotes('')
         setStatus('')
-
         setError(null)
         setEmptyFields([])
         console.log('Sales Added',json)
-        dispatch({type: 'CREATE_SALES', payload: json})
+        dispatch({type: 'CREATE_SALE', payload: json})
 }
    }
    return (

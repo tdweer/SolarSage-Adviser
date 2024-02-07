@@ -28,6 +28,35 @@ const getSale = async (req, res) => {
 const createSale = async (req, res) => {
     const {salesid, date, clientid, clientname, productinfo, notes, status} = req.body
 
+    let emptyFields = []
+
+    if (!salesid){
+        emptyFields.push('salesid')
+    }
+    if (!date){
+        emptyFields.push('date')
+    }
+    if (!clientid){
+        emptyFields.push('clientid')
+    }
+    if (!clientname){
+        emptyFields.push('clientname')
+    }
+    if (!productinfo){
+        emptyFields.push('productinfo')
+    }
+    if (!notes){
+        emptyFields.push('notes')
+    }
+    if (!status){
+        emptyFields.push('status')
+    }
+
+    if(emptyFields.length > 0 ){
+        return res.status(400).json({error: 'Please fill in all the fields', emptyFields })
+    }
+
+
     //add doc to db
     try{
         const sale = await Sales.create({salesid, date, clientid, clientname, productinfo, notes, status})

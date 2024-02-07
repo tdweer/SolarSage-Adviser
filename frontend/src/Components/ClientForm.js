@@ -37,7 +37,7 @@ const ClientForm = () => {
          setError(null)
          setEmptyFields([])
          console.log('Client Added',json)
-         dispatch({type: 'ADD_CLIENT', payload: json})
+         dispatch({type: 'CREATE_CLIENT', payload: json})
  }
     }
     return (

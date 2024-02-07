@@ -1,5 +1,6 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useSalesContext } from '../hooks/useSalesContext'
 
 //components
 import SalesDetails from "../Components/SalesDetails"
@@ -7,7 +8,7 @@ import SalesForm from "../Components/SalesForm"
 
 
 const Sales = () => {
-    const [sales, setSales] = useState(null)
+    const { sales, dispatch} = useSalesContext()
 
     useEffect (() => {
         const fetchSales = async() => {
@@ -15,7 +16,7 @@ const Sales = () => {
           const json  = await response.json()
     
           if (response.ok) {
-            setSales(json)
+            dispatch({type: 'SET_SALES', payload: json})
         }
        }
        fetchSales()
