@@ -6,7 +6,7 @@ const {
     deleteClient,
     updateClient
 } = require('../controllers/clientController')
-const  requireAuth  = require('../middleware/requireAuth')
+// const  requireAuth  = require('../middleware/requireAuth')
 
 
 
@@ -15,7 +15,7 @@ const  requireAuth  = require('../middleware/requireAuth')
 const router = express.Router()
 
 
-router.use(requireAuth)
+// router.use(requireAuth)
 
 //Get all clients
 router.get('/', getClients)

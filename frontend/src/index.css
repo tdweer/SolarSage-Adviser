@@ -51,7 +51,7 @@ header a {
 .project-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
-  color: var(--primary);
+  color: #F64C72;
 }
 .project-details p {
   margin: 0;
@@ -63,7 +63,7 @@ header a {
   top: 20px;
   right: 20px;
   cursor: pointer;
-  background: #1aac83;
+  background: #F64C72;
   padding: 6px;
   border-radius: 40%;
   color: #ffffff;
@@ -83,9 +83,9 @@ input {
   box-sizing: border-box;
 }
 form button {
-  background: var(--primary);
-  border: 0;
-  color: #fff;
+  background: #fff;
+  border: 2px solid #F64C72;
+  color: #F64C72;
   padding: 10px;
   font-family: "Poppins";
   border-radius: 30px;
@@ -103,7 +103,7 @@ div.error {
 
 .projecth{
   margin-left: 50px;
-  color: #1aac83;
+  color: #F64C72;
 }
 
 .lbl{
@@ -117,7 +117,7 @@ input.error {
 
 
 /*project button dashboard*/
-.projectbttn {
+/* .projectbttn {
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
@@ -126,11 +126,11 @@ input.error {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-}
+} */
 
 /* deposits */
 .deposits{
-  color: #1aac83;
+  color: #F64C72;
 }
 
 /* navbar */
@@ -151,6 +151,7 @@ nav button {
   font-family: "Poppins";
   cursor: pointer;
   font-size: 1em;
+  margin-left: 10px;
 }
 /* auth forms */
 form.signup, form.login {
@@ -161,3 +162,34 @@ form.signup, form.login {
   border-radius: 30px;
 }
 
+/* log in and sign up btn */
+.slbtn {
+  background: #fff;
+  border: 3px solid #F64C72 ;
+  color: #F64C72;
+  padding: 6px 10px;
+  margin: 40px auto;
+  font-family: "Poppins";
+  border-radius: 15px;
+  cursor: pointer;
+  margin-left: 170px;
+  align-content: center;
+  align-items: center;
+}
+
+/* dashboard btns */
+.dbtn {
+  background: #fff;
+  border: 3px solid #F64C72 ;
+  color: #F64C72;
+  padding: 6px 10px;
+  margin: 40px auto;
+  font-family: "Poppins";
+  border-radius: 15px;
+  cursor: pointer;
+  margin-left: 100px;
+  align-content: center;
+  align-items: center;
+  width: 100px; 
+  height: 40px;
+}

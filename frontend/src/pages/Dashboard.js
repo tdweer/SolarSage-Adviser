@@ -31,16 +31,16 @@ const Dashboard = () => {
   return (
     <div>
       <Link to="/Projects" className='projectbttn'>
-        <button>Projects</button>
+        <button className='dbtn'>Projects</button>
       </Link>
       <Link to="/clients" className='projectbttn'>
-        <button>Clients</button>
+        <button className='dbtn' >Clients</button>
       </Link>
       <Link to="/staff" className='projectbttn'>
-        <button>Staff</button>
+        <button className='dbtn' >Staff</button>
       </Link>
       <Link to="/sales" className='projectbttn'>
-        <button>Sales</button>
+        <button className='dbtn' >Sales</button>
       </Link>
       
       {/* Display recent deposits within a Card */}

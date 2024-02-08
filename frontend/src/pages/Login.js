@@ -29,7 +29,7 @@ return (
         value={[password]}    
     />
 
-    <button disabled={isLoading}>Log in</button>
+    <button className="slbtn" disabled={isLoading}>Log in</button>
     {error && <div className="error">{error}</div>}
     </form>
 )

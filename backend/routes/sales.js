@@ -5,11 +5,11 @@ const { getSales,
          deleteSale,
          updateSale 
 } = require('../controllers/salesController')
-const  requireAuth  = require('../middleware/requireAuth')
+// const  requireAuth  = require('../middleware/requireAuth')
 
 
 const router = express.Router()
-router.use(requireAuth)
+// router.use(requireAuth)
 
 //Get all sales
 router.get('/', getSales)

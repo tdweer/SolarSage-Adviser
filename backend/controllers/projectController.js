@@ -49,6 +49,7 @@ const createProject = async (req, res) => {
 
     //add doc to db
     try{
+        // const user_id = req.user._id
         const project = await Project.create({pid, title, address, description})
         res.status(200).json(project)
     }catch(error){

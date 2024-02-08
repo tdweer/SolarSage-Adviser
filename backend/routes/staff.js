@@ -5,11 +5,11 @@ const { getStaffs,
          deleteStaff,
          updateStaff 
 } = require('../controllers/staffController')
-const  requireAuth  = require('../middleware/requireAuth')
+// const  requireAuth  = require('../middleware/requireAuth')
 
 
 const router = express.Router()
-router.use(requireAuth)
+// router.use(requireAuth)
 
 //Get all staff members
 router.get('/', getStaffs)
