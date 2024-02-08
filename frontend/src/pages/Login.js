@@ -30,7 +30,7 @@ return (
     />
 
     <button disabled={isLoading}>Log in</button>
-    {isLoading && <div className="error">{error}</div>}
+    {error && <div className="error">{error}</div>}
     </form>
 )
 }
