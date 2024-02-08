@@ -9,6 +9,9 @@ import Projects from './pages/Projects'
 import Clients from './pages/Clients'
 import Staff from './pages/Staff'
 import Sales from './pages/Sales'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
+
 
 function App() {
 
@@ -46,7 +49,14 @@ function App() {
               path="/sales" 
               element={<Sales />}
             />
-
+            <Route 
+              path="/login" 
+              element={<Login />}
+            />
+            <Route 
+              path="/signup" 
+              element={<Signup />}
+            />
             
 
             

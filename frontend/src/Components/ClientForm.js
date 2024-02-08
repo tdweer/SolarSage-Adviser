@@ -76,7 +76,7 @@ const ClientForm = () => {
              className={emptyFields.includes('contact') ? 'error' : ''}
          />
          
-         <button>Add Project</button>
+         <button>Add Client</button>
          {error && <div className='error'>{error}</div>}
      </form>
  

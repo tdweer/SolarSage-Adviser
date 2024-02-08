@@ -46,7 +46,7 @@ const Dashboard = () => {
       {/* Display recent deposits within a Card */}
       <Card variant="outlined" style={{ margin: '10px', maxWidth: '400px', padding: '20px', borderRadius: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
         <CardContent>
-          <h2 className='deposits' style={{ marginBottom: '20px', }}>Total Earning/Month</h2>
+          <h2 className='deposits' style={{ marginBottom: '20px', }}>Total Earning/Monthly</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
             {deposits.map((deposit, index) => (
               <li key={index} style={{ marginBottom: '10px', borderBottom: '1px solid #ccc', paddingBottom: '10px' }}>

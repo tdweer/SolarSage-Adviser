@@ -104,7 +104,7 @@ const SalesForm = () => {
             className={emptyFields.includes('status') ? 'error' : ''}
         />
     	
-        <button>Add Project</button>
+        <button>Add Sale</button>
         {error && <div className='error'>{error}</div>}
     </form>
 
