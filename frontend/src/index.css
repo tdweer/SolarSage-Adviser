@@ -1,13 +1,195 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+
+/* layout */
+:root {
+  --primary: #1aac83;
+  --error: #ff0000;
+
+}
 body {
+  background: #2F2FA2;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Poppins";
+}
+header {
+  background: #242582;
+}
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header a {
+  color: #F64C72;
+  text-decoration: none;
+}
+.pages{
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+  
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* project */
+.Projects {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 100px;
+}
+.project-details {
+  background: #fff;
+  border-radius: 30px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+.project-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: #F64C72;
+}
+.project-details p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+.project-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #F64C72;
+  padding: 6px;
+  border-radius: 40%;
+  color: #ffffff;
+}
+
+/* new project form */
+label, input {
+  display: block;
+}
+input {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 2px solid #ddd;
+  border-radius: 30px;
+  box-sizing: border-box;
+}
+form button {
+  background: #fff;
+  border: 2px solid #F64C72;
+  color: #F64C72;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 30px;
+  cursor: pointer;
+  margin-left: 110px;
+}
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.projecth{
+  margin-left: 50px;
+  color: #F64C72;
+}
+
+.lbl{
+  color: white;
+  
+}
+
+input.error {
+  border: 1px solid var(--error);
+}
+
+
+/*project button dashboard*/
+/* .projectbttn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #1aac83;
+  color: #1aac83;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+} */
+
+/* deposits */
+.deposits{
+  color: #F64C72;
+}
+
+/* navbar */
+nav {
+  display: flex;
+  align-items: center;
+}
+nav a {
+  margin-left: 10px;
+}
+
+nav button {
+  background: #F64C72;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-family: "Poppins";
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 10px;
+}
+/* auth forms */
+form.signup, form.login {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 30px;
+}
+
+/* log in and sign up btn */
+.slbtn {
+  background: #fff;
+  border: 3px solid #F64C72 ;
+  color: #F64C72;
+  padding: 6px 10px;
+  margin: 40px auto;
+  font-family: "Poppins";
+  border-radius: 15px;
+  cursor: pointer;
+  margin-left: 170px;
+  align-content: center;
+  align-items: center;
+}
+
+/* dashboard btns */
+.dbtn {
+  background: #fff;
+  border: 3px solid #F64C72 ;
+  color: #F64C72;
+  padding: 6px 10px;
+  margin: 40px auto;
+  font-family: "Poppins";
+  border-radius: 15px;
+  cursor: pointer;
+  margin-left: 100px;
+  align-content: center;
+  align-items: center;
+  width: 100px; 
+  height: 40px;
 }

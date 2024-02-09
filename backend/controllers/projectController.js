@@ -27,6 +27,26 @@ const getProject = async (req, res) => {
 const createProject = async (req, res) => {
     const {pid, title, address, description} = req.body
 
+
+    let emptyFields = []
+
+    if(!pid){
+        emptyFields.push('pid')
+    }
+    if(!title){
+        emptyFields.push('title')
+    }
+    if(!address){
+        emptyFields.push('address')
+    }
+    if(!description){
+        emptyFields.push('description')
+    }
+
+    if(emptyFields.length > 0){
+        return res.status(400).json({error: 'Please fill in all the fields', emptyFields })
+    }
+
     //add doc to db
     try{
         const project = await Project.create({pid, title, address, description})
