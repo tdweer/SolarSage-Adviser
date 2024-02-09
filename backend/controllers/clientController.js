@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 
 //get all clients
 const getClients = async (req, res) => {
-    const clients = await Client.find({}).sort({createdAt: -1})
+    //const user_id = req.user._id
+    const clients = await Client.find({  }).sort({createdAt: -1})
 
     res.status(200).json(clients)
 }
@@ -30,6 +31,7 @@ const createClient = async (req, res) => {
 
     //add doc to db
     try{
+        //const user_id = req.user._id
         const client = await Client.create({id, name, address, contact})
         res.status(200).json(client)
     }catch(error){

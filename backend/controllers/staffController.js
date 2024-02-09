@@ -3,7 +3,9 @@ const mongoose = require('mongoose')
 
 //get all staffs
 const getStaffs = async (req, res) => {
-    const staffs = await Staff.find({}).sort({createdAt: -1})
+
+    // const user_id = req.user._id
+    const staffs = await Staff.find({  }).sort({createdAt: -1})
 
     res.status(200).json(staffs)
 }
@@ -52,6 +54,8 @@ const createStaff = async (req, res) => {
 
     //add doc to db
     try{
+        
+        // const user_id = req.user._id
         const staff = await Staff.create({staffid, name, address, contact})
         res.status(200).json(staff)
     }catch(error){
