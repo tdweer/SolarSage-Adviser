@@ -32,7 +32,7 @@ export const AuthContextProvider = ({ children }) => {
                 payload: user
             })
         }
-    }, [state])
+    }, [])
 
     console.log('AuthContext state: ', state)
 

@@ -44,7 +44,7 @@ const Dashboard = () => {
       </Link>
       
       {/* Display recent deposits within a Card */}
-      <Card variant="outlined" style={{ margin: '10px', maxWidth: '400px', padding: '20px', borderRadius: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+      <Card className="card" variant="outlined" style={{ margin: '10px', maxWidth: '400px', padding: '20px', borderRadius: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
         <CardContent>
           <h2 className='deposits' style={{ marginBottom: '20px', }}>Total Earning/Monthly</h2>
           <ul style={{ listStyleType: 'none', padding: 0 }}>
@@ -58,7 +58,7 @@ const Dashboard = () => {
         </CardContent>
       </Card>
              {/* Display project count within a Card */}
-             <Card variant="outlined" style={{ margin: '10px', maxWidth: '400px', padding: '20px', borderRadius: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+             <Card className="card" variant="outlined" style={{ margin: '10px', maxWidth: '400px', padding: '20px', borderRadius: '15px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
           <CardContent>
             <h2 className='deposits' style={{ marginBottom: '20px', }}>Project Count</h2>
             <p>{projectCount}</p>

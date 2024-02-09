@@ -4,7 +4,7 @@ import { useAuthContext } from "../hooks/useAuthContext"
 
 const ProjectForm = () => {
     const { dispatch } = useProjectsContext()
-    // const { user } = useAuthContext()
+    const { user } = useAuthContext()
 
    const [pid, setPid] = useState('')
    const [title, setTitle] = useState('')
@@ -16,18 +16,19 @@ const ProjectForm = () => {
    const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // if (!user){
-    //     setError('You must be logged in to add a project')
-    //     return
-    // }
+    if (!user){
+        setError('You must be logged in to add a project')
+        return
+    }
 
     const project = { pid, title, address, description }
 
     const response = await fetch('/api/projects', {
         method: 'POST',
         body: JSON.stringify(project),
-        headers: { 'Content-Type': 'application/json'
-        // 'Authorization': `Bearer ${user.token}`
+        headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${user.token}`
      }
     })
     const json = await response.json()
