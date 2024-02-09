@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useSignup } from "../hooks/useSignup"
+import { Link } from 'react-router-dom'
 
 
 
@@ -32,6 +33,7 @@ return (
     />
     <button className="slbtn" disabled={isLoading}>Signup</button>
     {error && <div className="error">{error}</div>}
+    <div><Link to="/login">Already have an account? LogIn</Link></div>
     </form>
 )
 }
