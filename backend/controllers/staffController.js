@@ -28,6 +28,28 @@ const getStaff = async (req, res) => {
 const createStaff = async (req, res) => {
     const {staffid, name, address, contact} = req.body
 
+    let emptyFields = []
+
+    if (!staffid){
+        emptyFields.push('staffid')
+    }
+    if (!name){
+        emptyFields.push('name')
+    }
+    if (!address){
+        emptyFields.push('address')
+    }
+    if (!contact){
+        emptyFields.push('contact')
+    }
+   
+    if(emptyFields.length > 0 ){
+        return res.status(400).json({error: 'Please fill in all the fields', emptyFields })
+    }
+
+
+
+
     //add doc to db
     try{
         const staff = await Staff.create({staffid, name, address, contact})
