@@ -17,6 +17,7 @@ import Signup from './pages/Signup'
 function App() {
   const { user } = useAuthContext()
   
+  
   return (
     <div className="App">
       <BrowserRouter>
