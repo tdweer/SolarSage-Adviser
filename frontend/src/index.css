@@ -1,14 +1,25 @@
 /* google font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* layout */
 :root {
   --primary: #1aac83;
   --error: #ff0000;
 
 }
-body {
-  background: #2F2FA2;
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+/* body {
+   background: #2F2FA2; 
   margin: 0;
   font-family: "Poppins";
 }
@@ -28,14 +39,14 @@ header a {
   text-decoration: none;
 }
 .pages{
-  max-width: 1400px;
+   max-width: 1400px; 
   padding: 20px;
   margin: 0 auto;
   
-}
+} */
 
 /* project */
-.Projects {
+/* .Projects {
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 100px;
@@ -67,10 +78,10 @@ header a {
   padding: 6px;
   border-radius: 40%;
   color: #ffffff;
-}
+} */
 
 /* new project form */
-label, input {
+/* label, input {
   display: block;
 }
 input {
@@ -113,7 +124,12 @@ div.error {
 
 input.error {
   border: 1px solid var(--error);
-}
+} */
+
+
+
+
+/* already commented */
 
 
 /*project button dashboard*/
@@ -128,10 +144,16 @@ input.error {
   cursor: pointer;
 } */
 
+
+/* alreadyCommented Section */
+
+
+
+
 /* deposits */
-.deposits{
+/* .deposits{
   color: #F64C72;
-}
+} */
 
 /* navbar */
 nav {
