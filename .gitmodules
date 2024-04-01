@@ -1,3 +1,0 @@
-[submodule "backend_flask"]
-	path = backend_flask
-	url = https://github.com/tdweer/PUSL3190-SolarSage-Adviser-ML.git
