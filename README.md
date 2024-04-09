@@ -1,11 +1,11 @@
 # **Project Setup Guide**
 
-Welcome to Solar Sage Adviser! This guide will help you set up and run the project on your local machine.
+Welcome to Solar Sage Adviser! This guide will help you set up and run the project on your local machine.  
 
 ## Prerequisites
-Node(v20.11.1)
-Python 3.12.2
-NPM (10.4.0)
+Node(v20.11.1)  
+Python 3.12.2  
+NPM (10.4.0)  
 
 
 
