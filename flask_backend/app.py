@@ -42,6 +42,8 @@ with open('trained_model.pkl', 'rb') as file:
     def recommend_solar_system():
         data = request.json
         input_text = data.get('input_text')
+        print(data)
+        print(input_text)
 
         vc = CountVectorizer()
         cleanSolar['Tags'] = cleanSolar['Tags'].fillna('')
