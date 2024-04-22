@@ -25,27 +25,27 @@ function App() {
           <Routes>
             <Route 
               path="/" 
-              element={user ? <Home /> : <Navigate to="/login" />} 
+               element={user ? <Home /> : <Navigate to="/login" />} 
             />
             <Route 
               path="/advisor" 
-              element={<Advisor />}
+              element={user ? <Advisor /> : <Navigate to="/login" />}
             />
-            <Route 
+            {/* <Route 
               path="/dashboard" 
               element={<Dashboard />}
-            />
+            /> */}
             <Route 
               path="/projects" 
-              element={<Projects />}
+              element={user ? <Projects />: <Navigate to="/login" />}
             />
             <Route 
               path="/clients" 
-              element={<Clients />}
+              element={user ?  <Clients /> : <Navigate to="/login" />}
             />
             <Route 
               path="/staff" 
-              element={<Staff />}
+              element={user ? <Staff /> : <Navigate to="/login" />  }
             />
              <Route 
               path="/sales" 

@@ -1,13 +1,13 @@
-import { ProjectsContext } from "../context/ProjectsContext"
-import { useContext } from "react"
+// import { ProjectsContext } from "../context/ProjectsContext"
+// import { useContext } from "react"
 
-export const useProjectsContext = () => {
-    const context  = useContext(ProjectsContext)
+// export const useProjectsContext = () => {
+//     const context  = useContext(ProjectsContext)
     
-    if (!context){
-        throw Error('useProjectsContext must be used inside ProjectContextProvider')
-    }
+//     if (!context){
+//         throw Error('useProjectsContext must be used inside ProjectContextProvider')
+//     }
 
 
-   return context
-}
+//    return context
+// }

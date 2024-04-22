@@ -7,6 +7,7 @@ module.exports = {
     extend: { colors: {
       primaryBack : '#2F2FA2'
     }},
+    
   },
   plugins: [],
 }
