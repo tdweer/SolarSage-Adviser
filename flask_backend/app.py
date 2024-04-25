@@ -20,7 +20,9 @@ with open('trained_model.pkl', 'rb') as file:
     print('File opened successfully')
     model = joblib.load(file)
     print('Model loaded successfully')
-
+# @app.route('/')
+# def hello_world():
+#     return ‘hello world’
 
     @app.route('/predict', methods=['POST'])
     def predict():
@@ -36,12 +38,14 @@ with open('trained_model.pkl', 'rb') as file:
 
         print('=======================', predicted_cost)
         return jsonify({'predicted_cost': formatted_predicted_cost})
-
+  
 
     @app.route('/recommend', methods=['POST'])
     def recommend_solar_system():
         data = request.json
         input_text = data.get('input_text')
+        print(data)
+        print(input_text)
 
         vc = CountVectorizer()
         cleanSolar['Tags'] = cleanSolar['Tags'].fillna('')

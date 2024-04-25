@@ -10,24 +10,24 @@ const  requireAuth  = require('../middleware/requireAuth')
 
 const router = express.Router()
 
-router.use(requireAuth)
+// router.use(requireAuth)
 
 //Get all projects
-router.get('/', getProjects)
+router.get('/', requireAuth ,getProjects)
 
 //Get a single project
-router.get('/:id', getProject)
+router.get('/:id',requireAuth , getProject)
 
 //Create a new project
-router.post('/',createProject)
+router.post('/',requireAuth ,createProject)
     
 
 //Delete a project
-router.delete('/:id',deleteProject)
+router.delete('/:id',requireAuth, deleteProject)
 
 
 //Update a project
-router.patch('/:id',updateProject)
+router.patch('/:id',requireAuth ,updateProject)
 
 
 

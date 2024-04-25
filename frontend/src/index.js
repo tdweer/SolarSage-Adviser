@@ -13,15 +13,15 @@ import { AuthContextProvider } from './context/AuthContext'
 ReactDOM.render(
   <React.StrictMode>
     <AuthContextProvider>
-        <StaffContextProvider>
+        {/* <StaffContextProvider>
         <SalesContextProvider>
           <ClientsContextProvider>
-           <ProjectsContextProvider>
+           <ProjectsContextProvider> */}
               <App />
-            </ProjectsContextProvider> 
+            {/* </ProjectsContextProvider> 
           </ClientsContextProvider>
         </SalesContextProvider>
-      </StaffContextProvider>
+      </StaffContextProvider> */}
       </AuthContextProvider>
 </React.StrictMode>,
 

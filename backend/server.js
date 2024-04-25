@@ -6,6 +6,7 @@ const clientRoutes = require('./routes/clients');
 const staffRoutes = require('./routes/staff');
 const salesRoutes = require('./routes/sales');
 const userRoutes = require('./routes/user');
+const cors = require('cors');
 
 // MongoDB schema and model for deposits
 const depositSchema = new mongoose.Schema({
@@ -20,7 +21,7 @@ const app = express();
 
 // middleware
 app.use(express.json());
-
+app.use(cors());
 app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
