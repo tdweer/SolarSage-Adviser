@@ -20,9 +20,9 @@ with open('trained_model.pkl', 'rb') as file:
     print('File opened successfully')
     model = joblib.load(file)
     print('Model loaded successfully')
-@app.route('/')
-def hello_world():
-    return ‘hello world’
+# @app.route('/')
+# def hello_world():
+#     return ‘hello world’
 
     @app.route('/predict', methods=['POST'])
     def predict():
