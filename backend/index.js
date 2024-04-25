@@ -19,6 +19,8 @@ const Deposit = mongoose.model('Deposit', depositSchema);
 // express app
 const app = express();
 
+const PORT = process.env.PORT || 4000;
+
 // middleware
 app.use(express.json());
 app.use(cors());
@@ -72,14 +74,29 @@ app.get('/api/projects', async (req, res) => {
 });
 
 // connect to db
-mongoose
-  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+// mongoose
+//   .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+//   .then(() => {
+//     console.log('Connected to database');
+
+//     // listen to port
+//     app.listen(process.env.PORT, () => {
+//       console.log('Listening for requests on port', process.env.PORT);
+//     });
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+
+  mongoose
+  .connect(`mongodb+srv://tdasunrcm:aStKpeQNe1LSWiJx@ssa.wy6knxs.mongodb.net/?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Connected to database');
 
     // listen to port
-    app.listen(process.env.PORT, () => {
-      console.log('Listening for requests on port', process.env.PORT);
+    app.listen(PORT, () => {
+      console.log('Listening for requests on port', PORT);
     });
   })
   .catch((err) => {
