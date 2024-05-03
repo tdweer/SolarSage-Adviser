@@ -1,11 +1,12 @@
+
+
 import joblib
+import numpy as np
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-
 
 app = Flask('ssaml')
 CORS(app)
@@ -20,17 +21,16 @@ with open('trained_model.pkl', 'rb') as file:
     print('File opened successfully')
     model = joblib.load(file)
     print('Model loaded successfully')
-# @app.route('/')
-# def hello_world():
-#     return ‘hello world’
 
-    @app.route('/predict', methods=['POST'])
-    def predict():
+@app.route('/predict', methods=['POST'])
+def predict():
+    try:
         data = request.get_json()  # Get JSON data from POST request
-        print(data)
-        data = [data]
-        # Convert JSON data to DataFrame
-        input_data = pd.DataFrame(data)
+        print('Received data:', data)  # Log the received data
+
+        # Ensure that the feature order matches the model's training data
+        input_features = ['SystemSizeID', 'SystemTypeID', 'SolarPanelID', 'BatteryID', 'InverterID']
+        input_data = np.array([[data[feat] for feat in input_features]])  # Assuming input data is a dictionary
 
         # Use the trained model to predict
         predicted_cost = model.predict(input_data)
@@ -38,10 +38,14 @@ with open('trained_model.pkl', 'rb') as file:
 
         print('=======================', predicted_cost)
         return jsonify({'predicted_cost': formatted_predicted_cost})
-  
-
-    @app.route('/recommend', methods=['POST'])
-    def recommend_solar_system():
+    except Exception as e:
+        import traceback
+        print('Error:', e)
+        traceback.print_exc()  # Log the full traceback
+        return jsonify({'error': str(e)}), 500
+@app.route('/recommend', methods=['POST'])
+def recommend_solar_system():
+    try:
         data = request.json
         input_text = data.get('input_text')
         print(data)
@@ -56,7 +60,8 @@ with open('trained_model.pkl', 'rb') as file:
         results = cleanSolar.loc[top_five, 'SolarSystem'].values.tolist()
 
         return jsonify({'recommendations': results})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
-
-    if __name__ == '__main__':
-        app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
