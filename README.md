@@ -23,7 +23,7 @@ now succesfully React Frontend  running on PORT:3000
 open a new terminal on the IDE  
 cd backend  
 npm install  
-npm run dev  
+npm install  
 now succesfully Node Backend  running on PORT:4000  
 
 ## setup the flask backend(ML PART)  
