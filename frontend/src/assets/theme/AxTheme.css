@@ -1,0 +1,733 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+.body {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 !important;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.overFlowHidden-x {
+    overflow-x: hidden;
+}
+
+.overFlowHidden {
+    overflow: hidden !important;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.justifyAlign {
+    align-items: center;
+    justify-content: center;
+}
+
+.align-item-center {
+    display: flex;
+    align-items: center;
+}
+
+.align-item-end {
+    display: flex;
+    align-items: flex-end;
+}
+
+.flex_dir_row {
+    flex-direction: row;
+}
+
+.flex_dir_col {
+    flex-direction: column;
+}
+
+.text-decoration-none {
+    text-decoration: none;
+}
+
+/*padding --------------------------------*/
+.p-0 {
+    padding: 0 !important;
+}
+
+.p-50px {
+    margin: 50px !important;
+}
+
+/*margin----------------------------------*/
+.m-0 {
+    margin: 0 !important;
+}
+
+.m-10ppx {
+    margin: 10px;
+}
+
+.m-10px {
+    margin: 40px;
+}
+
+.ml-10px {
+    margin: 15px !important;
+}
+
+.mt-1 {
+    margin-top: 1%;
+}
+
+.mt-2 {
+    margin-top: 2%;
+}
+
+.mt-5 {
+    margin-top: 8%;
+}
+
+.mt-15 {
+    margin-top: 15%;
+}
+
+.mb-10 {
+    margin-top: 2% !important;
+}
+
+.mt--20 {
+    margin-top: -20% !important;
+}
+
+.mt--100 {
+    margin-top: -40% !important;
+}
+
+.mt-30 {
+    margin-top: 80%;
+}
+
+.ml-2 {
+    margin-left: 2%;
+}
+
+.ml-13 {
+    margin-left: 13% !important;
+}
+.mr-5{
+    margin-left: -6% !important;
+}
+
+
+.ml-8 {
+    margin-left: 8% !important;
+}
+
+/*background colors -----------------------*/
+.bg-whitesmoke {
+    background-color: whitesmoke;
+}
+
+.bg-white-light {
+    background-color: rgba(255, 255, 255);
+}
+
+.bg-mainColor {
+    background-color: #1976D3;
+}
+
+.bg-red {
+    background-color: red;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-blue {
+    background-color: blue;
+}
+
+.bg-green {
+    background-color: green;
+}
+
+.bg-darkblue {
+    background-color: darkblue;
+}
+
+.bg-darkgrey {
+    background-color: darkgrey;
+}
+
+.bg-dark-2 {
+    background-color: #1e1e1e;
+}
+
+.bg-darkcyan {
+    background-color: darkcyan;
+}
+
+.bg-test-1 {
+    background-color: cyan;
+}
+
+.bg-test-2 {
+    background-color: cadetblue;
+}
+
+.bg-test-3 {
+    background-color: lawngreen;
+}
+
+.bg-test-4 {
+    background-color: goldenrod;
+}
+
+.bg-test-5 {
+    background-color: slateblue;
+}
+
+.bg-test-6 {
+    background-color: #81ecec;
+}
+
+.bg-test-7 {
+    background-color: rgba(0, 0, 0, 0.46);
+}
+
+.bg-gradiant-1 {
+    background-image: linear-gradient(to left top, #12232e, #304350, #506776, #728c9d, #96b4c6, #99c1d9, #9dcdec, #a0daff, #82ccff, #63bdff, #40aeff, #009fff);
+}
+
+/*font colors -----------------------------*/
+.f_white {
+    color: white !important;
+}
+
+.f_deepskyblue {
+    color: deepskyblue;
+}
+
+.f_lightgrey {
+    color: lightgrey;
+}
+
+.f_mainColor {
+    color: #1976D3 !important;
+}
+
+
+/*font family -----------------------------*/
+.fontPoppins-Thin {
+    font-family: "Poppins Thin", sans-serif !important;
+}
+
+.fontPoppins-Light {
+    font-family: "Poppins Light", sans-serif !important;
+}
+
+.fontPoppins {
+    font-family: Poppins, sans-serif !important;
+}
+
+/*font size ----------------------------------------------------------------------------------------------------------*/
+.fs-12px {
+    font-size: 12px;
+}
+
+.fs-14px {
+    font-size: 14px;
+}
+
+.fs-15px {
+    font-size: 15px;
+}
+
+.fs-20px {
+    font-size: 17px;
+}
+
+.fs-45px {
+    font-size: 45px;
+}
+
+.fs-60px {
+    font-size: 70px;
+}
+
+/*width -----------------------------------*/
+.w2 {
+    width: 2%;
+}
+
+.w4 {
+    width: 4%;
+}
+
+.w5 {
+    width: 5%;
+}
+
+.w10 {
+    width: 10%;
+}
+
+.w12 {
+    width: 12%;
+}
+
+.w15 {
+    width: 15%;
+}
+
+.w18 {
+    width: 18%;
+}
+
+.w20 {
+    width: 20%;
+}
+
+.w22 {
+    width: 22%;
+}
+
+.w25 {
+    width: 25%;
+}
+
+
+.w30 {
+    width: 30%;
+}
+
+.w32 {
+    width: 32%;
+}
+
+.w35 {
+    width: 35%;
+}
+
+.w38 {
+    width: 38%;
+}
+
+.w40 {
+    width: 40%;
+}
+
+.w45 {
+    width: 45%;
+}
+
+.w48 {
+    width: 48%;
+}
+
+.w50 {
+    width: 50%;
+}
+
+.w52 {
+    width: 52%;
+}
+
+.w55 {
+    width: 55%;
+}
+
+.w60 {
+    width: 60%;
+}
+
+.w65 {
+    width: 65%;
+}
+
+.w70 {
+    width: 70%;
+}
+
+.w75 {
+    width: 75%;
+}
+
+.w80 {
+    width: 80%;
+}
+
+.w82 {
+    width: 82%;
+}
+
+.w83 {
+    width: 83%;
+}
+
+.w84 {
+    width: 84%;
+}
+
+.w85 {
+    width: 85%;
+}
+
+.w95 {
+    width: 95%;
+}
+
+.w98 {
+    width: 98%;
+}
+
+.w100 {
+    width: 100%!important;
+}
+
+.w110 {
+    width: 112%;
+}
+
+/*width view point -------------------------------------------*/
+.w95w {
+    width: 95vw;
+}
+.w100w {
+    width: 100vw;
+}
+
+/*width pixel ------------------------------------------------*/
+.w110px {
+    width: 110px;
+}
+
+.w130px {
+    width: 135px;
+}
+
+.w250px {
+    width: 250px;
+}
+
+.w260px {
+    width: 260px;
+}
+
+.w300px{
+    width: 350px;
+}
+
+/*height -----------------------------------------------------*/
+.h2 {
+    height: 2%;
+}
+
+.h5 {
+    height: 5%;
+}
+
+.h7 {
+    height: 7%;
+}
+
+.h8 {
+    height: 8%;
+}
+
+.h10 {
+    height: 10%;
+}
+
+.h12 {
+    height: 12%;
+}
+
+.h15 {
+    height: 15%;
+}
+
+.h20 {
+    height: 20%;
+}
+
+.h30 {
+    height: 30%;
+}
+
+.h40 {
+    height: 40%;
+}
+
+
+.h50 {
+    height: 50%;
+}
+
+.h60 {
+    height: 60%;
+}
+
+.h65 {
+    height: 65%;
+}
+
+.h70 {
+    height: 68%;
+}
+
+.h80 {
+    height: 80%;
+}
+
+.h85 {
+    height: 85%;
+}
+
+.h88 {
+    height: 88%;
+}
+
+.h90 {
+    height: 90%;
+}
+
+.h95 {
+    height: 95%;
+}
+
+.h98 {
+    height: 98%;
+}
+
+.h100 {
+    height: 100%;
+}
+
+/*height view point --------------------------------------------*/
+.h10h {
+    height: 10vh;
+}
+
+.h40h {
+    height: 40vh;
+}
+
+.h50h {
+    height: 50vh;
+}
+
+.h75h {
+    height: 75vh;
+}
+
+.h15h {
+    height: 15vh;
+}
+
+.h95h {
+    height: 95vh;
+}
+
+
+.h100h {
+    height: 100vh;
+}
+
+.h105h {
+    height: 105vh;
+}
+
+.h130h {
+    height: 130vh;
+}
+
+.h500h {
+    height: 500vh !important;
+}
+
+/*height pixel ------------------------------------------------*/
+.h10px {
+    height: 10px;
+}
+.h20px {
+    height: 64px;
+}
+
+.h55px {
+    height: 55px;
+}
+
+.h60px {
+    height: 60px;
+}
+
+.h70px {
+    height: 70px;
+}
+
+
+.h180px {
+    height: 180px;
+}
+
+.h200px {
+    height: 250px;
+}
+
+.h350px {
+    height: 350px;
+}
+.h300px {
+    height: 300px;
+}
+.h600px {
+    height: 600px;
+}
+
+/*rem ----------------------------------------------------------------------------------------------------------------*/
+.w20rem {
+    width: 20rem;
+}
+
+.h20rem {
+    height: 20rem;
+}
+
+.border-radius-30px-Red {
+    border-radius: 30px;
+    border: 1px solid Red;
+}
+
+/*borders -----------------------------------------------------*/
+.border-radius-30px {
+    border-radius: 30px;
+}
+
+/*image css ---------------------------------------------------*/
+.images {
+    background-size: cover;
+}
+
+.btn_sign_up {
+    border: 1px solid #1c89c4 !important;
+    color: #1c89c4 !important;
+}
+
+/*hover section -----------------------------------------------*/
+.btn_sign_up:hover {
+    background-color: #1c89c4 !important;
+    color: white !important;
+    border: none !important;
+}
+
+.btn_icon:hover {
+    color: #d3d3d3 !important;
+}
+
+.btn_forgot:hover {
+    color: #549dff !important;
+    cursor: pointer;
+}
+
+/*check box ----------------------------------------------------------------------------------------------------------*/
+
+/*mui text field -----------------------------------------------------------------------------------------------------*/
+
+
+/*custom css ---------------------------------------------------------------------------------------------------------*/
+.adminCard {
+    border-radius: 20px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.adminCardHeader {
+    border-top-left-radius: 19px;
+    border-top-right-radius: 19px;
+}
+/*.adminCardBottom {*/
+/*    border-bottom-left-radius: 19px;*/
+/*    border-bottom-right-radius: 19px;*/
+/*}*/
+
+.adminCardIconDiv {
+    border: 2px solid #1976D3;
+    width: 90%;
+    height: 70%;
+    border-radius: 15px;
+}
+
+/* admin product */
+.btnSave {
+    background-color: white !important;
+    border: 2px solid #05c46b !important;
+    color: #05c46b !important;
+}
+
+.btnUpdate {
+    background-color: white !important;
+    border: 2px solid #f9ca24 !important;
+    color: #f9ca24 !important;
+}
+
+.btnDelete {
+    background-color: white !important;
+    border: 2px solid #eb4d4b !important;
+    color: #eb4d4b !important;
+}
+
+.btnSave:hover {
+    background-color: #05c46b !important;
+    border: 2px solid white !important;
+    color: white !important;
+}
+
+.btnUpdate:hover {
+    background-color: #f9ca24 !important;
+    border: 2px solid white !important;
+    color: white !important;
+}
+
+.btnDelete:hover {
+    background-color: #eb4d4b !important;
+    border: 2px solid white !important;
+    color: white !important;
+}
+
+.btnSearch {
+    background-color: white !important;
+    border: 2px solid #006cff !important;
+    color: #006cff !important;
+}
+
+.btnSearch:hover {
+    background-color: #006cff !important;
+    border: 2px solid white !important;
+    color: white !important;
+}
+
+.btnReport {
+    background-color: white !important;
+    border: 2px solid #353b48 !important;
+    color: #353b48 !important;
+}
+
+.btnReport:hover {
+    background-color: #353b48 !important;
+    border: 2px solid white !important;
+    color: white !important;
+}
+.scroll_dic{
+    height: 420px;
+    overflow-y: scroll;
+}
