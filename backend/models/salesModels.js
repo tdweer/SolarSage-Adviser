@@ -10,6 +10,7 @@ const staffSchema = new Schema({
 
     date: {
         type: Date,
+        default: Date.now,
         required: true
     },
     clientid: {
@@ -35,11 +36,10 @@ const staffSchema = new Schema({
     status: {
         type: String,
         required: true
+    },
+    amount:{
+        type: Number
     }
-    // user_id: {
-    //     type: String,
-    //     required: true
-    // }
 }, {timestamps: true})
 
 module.exports = mongoose.model('Sales', staffSchema)

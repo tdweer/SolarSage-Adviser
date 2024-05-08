@@ -25,7 +25,11 @@ const projectSchema = new Schema({
     user_id: {
         type: String,
         required: true
-    }
+    },
+    phoneNO: {
+        type: Number,
+        required: true
+    },
 }, {timestamps: true})
 
 module.exports = mongoose.model('Project', projectSchema)

@@ -4,12 +4,11 @@ const {
     getClient,
     createClient,
     deleteClient,
-    updateClient
+    updateClient,
+    countClients,
+    clientSearch
 } = require('../controllers/clientController')
 // const  requireAuth  = require('../middleware/requireAuth')
-
-
-
 
 
 const router = express.Router()
@@ -27,10 +26,14 @@ router.get('/:id', getClient)
 router.post('/', createClient)
 
 //Delete a client
-router.delete('/:id', deleteClient)
+router.delete('/delete/:id', deleteClient)
 
 //update a client
-router.patch('/:id', updateClient)
+router.patch('/update/:id', updateClient)
+
+router.get('/total/counts', countClients);
+
+router.get('/client/searchId/:id', clientSearch);
 
 
 module.exports = router
