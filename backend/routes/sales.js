@@ -4,7 +4,8 @@ const { getSales,
          createSale,
          deleteSale,
          updateSale,
-         countTotal 
+         countTotal,
+        saleSearch
 } = require('../controllers/salesController')
 // const  requireAuth  = require('../middleware/requireAuth')
 
@@ -27,8 +28,10 @@ router.delete('/:id',deleteSale)
 //Update a sale
 router.patch('/:id',updateSale)
 
+//admin page total count
 router.get('/total/counts', countTotal)
 
-
+//search
+router.get('/sales/searchId/:id', saleSearch);
 
 module.exports = router

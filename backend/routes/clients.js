@@ -31,8 +31,10 @@ router.delete('/delete/:id', deleteClient)
 //update a client
 router.patch('/update/:id', updateClient)
 
+//totla count admin home
 router.get('/total/counts', countClients);
 
+//search
 router.get('/client/searchId/:id', clientSearch);
 
 

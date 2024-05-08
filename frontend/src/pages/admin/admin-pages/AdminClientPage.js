@@ -8,10 +8,10 @@ import '../../../assets/theme/AxTheme.css';
 function AdminClientPage() {
 
     const columns = [
-        {field: 'id', headerName: 'Customer ID', width: 170},
-        {field: 'name', headerName: 'Customer Name', width: 200},
-        {field: 'address', headerName: 'Customer Address', width: 200},
-        {field: 'contact', headerName: 'Customer Contact', width: 200},
+        {field: 'id', headerName: 'Client ID', width: 170},
+        {field: 'name', headerName: 'Client Name', width: 200},
+        {field: 'address', headerName: 'Client Address', width: 200},
+        {field: 'contact', headerName: 'Client Contact', width: 200},
     ];
 
     const [id, setID] = useState("");
@@ -124,8 +124,6 @@ function AdminClientPage() {
         }
     }
 
-
-
     return (
 
         <>
@@ -136,7 +134,7 @@ function AdminClientPage() {
 
                     <TextField value={id} onChange={(event) => {
                         setID(event.target.value)
-                    }} id="outlined-basic" label="Customer ID" variant="outlined" size="small" sx={{m: 1}}/>
+                    }} id="outlined-basic" label="Client ID" variant="outlined" size="small" sx={{m: 1}}/>
 
                     <Button variant="outlined" size="medium"
                         // startIcon={searchIcon()}
@@ -148,15 +146,15 @@ function AdminClientPage() {
 
                     <TextField value={name} onChange={(event) => {
                         setName(event.target.value)
-                    }} id="outlined-basic" label="Customer Name" variant="outlined" size="small" sx={{m: 1}}/>
+                    }} id="outlined-basic" label="Client Name" variant="outlined" size="small" sx={{m: 1}}/>
 
                     <TextField value={address} onChange={(event) => {
                         setAddress(event.target.value)
-                    }} id="outlined-basic" label="Customer Address" variant="outlined" size="small" sx={{m: 1}}/>
+                    }} id="outlined-basic" label="Client Address" variant="outlined" size="small" sx={{m: 1}}/>
 
                     <TextField value={contact} onChange={(event) => {
                         setContact(event.target.value)
-                    }} id="outlined-basic" label="Customer Contact" variant="outlined" size="small" sx={{m: 1}}/>
+                    }} id="outlined-basic" label="Client Contact" variant="outlined" size="small" sx={{m: 1}}/>
 
                     <Button variant="outlined" size="medium" color='info'
                             sx={{m: 1, width: 100}} className={"btnSave"} onClick={saveClient}>

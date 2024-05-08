@@ -29,11 +29,11 @@ const getClient = async (req, res) => {
 const createClient = async (req, res) => {
     const { id, name, address, contact } = req.body
 
-    //add doc to d
+    //add doc to db
     try {
         //const user_id = req.user._id
         const client = await Client.create({ id, name, address, contact })
-        SendSMS.sendNotification(contact, `Wellcome to our company ${name} we are happy to have you as our client.`)
+        SendSMS.sendNotification(contact, `Wellcome to our Company Mr/Mrs ${name} We are happy to have you as our client.[SolarSageAdviser info service]`)
         res.status(200).json(client)
     } catch (error) {
         res.status(400).json({ error: error.message })
