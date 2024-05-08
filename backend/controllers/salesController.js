@@ -1,5 +1,6 @@
 const Sales = require('../models/salesModels')
 const mongoose = require('mongoose')
+const Client = require("../models/clientModel");
 
 //get all sales
 const getSales = async (req, res) => {
@@ -71,38 +72,80 @@ const createSale = async (req, res) => {
 //delete a sale
 const deleteSale = async (req, res) => {
     const { id } = req.params
+    try {
+        const deletedSale = await Client.findOneAndDelete({ id: id });
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: 'No such a sale not found' })
+        if (!deletedSale) {
+            return res.status(404).json({ message: 'Client not found' });
+        }
+
+        res.status(200).json({ message: 'Client deleted successfully', deletedSale });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server Error' });
     }
 
-    const sale = await Sales.findByIdAndDelete({ _id: id })
-
-    if (!sale) {
-        return res.status(400).json({ error: 'Sale not found' })
-    }
-
-    res.status(200).json(sale)
+    // if (!mongoose.Types.ObjectId.isValid(id)) {
+    //     return res.status(404).json({ error: 'No such a sale not found' })
+    // }
+    //
+    // const sale = await Sales.findByIdAndDelete({ _id: id })
+    //
+    // if (!sale) {
+    //     return res.status(400).json({ error: 'Sale not found' })
+    // }
+    //
+    // res.status(200).json(sale)
 }
 
 //update a sale
 const updateSale = async (req, res) => {
     const { id } = req.params
-    const { date, clientid, clientname, productinfo, notes, status } = req.body
+    // const { date, clientid, clientname, productinfo, notes, status } = req.body
+    //
+    // if (!mongoose.Types.ObjectId.isValid(id)) {
+    //     return res.status(404).json({ error: 'No such a sale not found' })
+    // }
+    //
+    // const sale = await Sales.findOneAndUpdate({ _id: id }, {
+    //     ...req.body
+    // })
+    //
+    // if (!sale) {
+    //     return res.status(400).json({ error: 'Sale not found' })
+    // }
+    //
+    // res.status(200).json(sale)
+    try {
+        const updatedSale = await Sales.findOneAndUpdate(
+            { id: id },
+            req.body,
+            { new: true }
+        );
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: 'No such a sale not found' })
+        if (!updatedSale) {
+            return res.status(404).json({ message: 'Sale details not found' });
+        }
+
+        res.status(200).json(updatedClient);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server Error' });
     }
 
-    const sale = await Sales.findOneAndUpdate({ _id: id }, {
-        ...req.body
-    })
-
-    if (!sale) {
-        return res.status(400).json({ error: 'Sale not found' })
+    const clientSearch = async (req, res) => {
+        const { id } = req.params;
+        try {
+            const sale = await Client.findOne({ id: Number(id) });
+            if (!sale) {
+                return res.status(404).json({ error: 'Client not found' });
+            }
+            res.json(sale);
+        } catch (error) {
+            console.error('Error searching client:', error);
+            res.status(500).json({ error: 'Internal server error' });
+        }
     }
-
-    res.status(200).json(sale)
 }
 
 
@@ -123,5 +166,6 @@ module.exports = {
     createSale,
     deleteSale,
     updateSale,
-    countTotal
+    countTotal,
+    saleSearch
 }
