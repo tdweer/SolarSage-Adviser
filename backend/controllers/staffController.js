@@ -5,22 +5,22 @@ const mongoose = require('mongoose')
 const getStaffs = async (req, res) => {
 
     // const user_id = req.user._id
-    const staffs = await Staff.find({  }).sort({createdAt: -1})
+    const staffs = await Staff.find({}).sort({ createdAt: -1 })
 
     res.status(200).json(staffs)
 }
 
 // get a single staff  
 const getStaff = async (req, res) => {
-    const  { id } = req.params
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({error: 'No such a staff member  found'})
+    const { id } = req.params
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({ error: 'No such a staff member  found' })
     }
 
     const staff = await Staff.findById(id)
 
-    if(!staff){
-        return res.status(404).json({error: 'Staff member not found'})
+    if (!staff) {
+        return res.status(404).json({ error: 'Staff member not found' })
     }
 
     res.status(200).json(staff)
@@ -28,53 +28,53 @@ const getStaff = async (req, res) => {
 
 //add a new staff member
 const createStaff = async (req, res) => {
-    const {staffid, name, address, contact} = req.body
+    const { staffid, name, address, contact } = req.body
 
     let emptyFields = []
 
-    if (!staffid){
+    if (!staffid) {
         emptyFields.push('staffid')
     }
-    if (!name){
+    if (!name) {
         emptyFields.push('name')
     }
-    if (!address){
+    if (!address) {
         emptyFields.push('address')
     }
-    if (!contact){
+    if (!contact) {
         emptyFields.push('contact')
     }
-   
-    if(emptyFields.length > 0 ){
-        return res.status(400).json({error: 'Please fill in all the fields', emptyFields })
+
+    if (emptyFields.length > 0) {
+        return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
     }
 
 
 
 
     //add doc to db
-    try{
-        
+    try {
+
         // const user_id = req.user._id
-        const staff = await Staff.create({staffid, name, address, contact})
+        const staff = await Staff.create({ staffid, name, address, contact })
         res.status(200).json(staff)
-    }catch(error){
-        res.status(400).json({error: error.message})
+    } catch (error) {
+        res.status(400).json({ error: error.message })
     }
 }
 
 //delete a staff member
 const deleteStaff = async (req, res) => {
-    const {id} = req.params
+    const { id } = req.params
 
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({error: 'No such a staff  member found'})
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({ error: 'No such a staff  member found' })
     }
 
-    const staff = await Staff.findByIdAndDelete({_id: id})
+    const staff = await Staff.findByIdAndDelete({ _id: id })
 
-    if(!staff){
-        return res.status(400).json({error: 'Staff member not found'})
+    if (!staff) {
+        return res.status(400).json({ error: 'Staff member not found' })
     }
 
     res.status(200).json(staff)
@@ -82,27 +82,43 @@ const deleteStaff = async (req, res) => {
 
 //update a staff member
 const updateStaff = async (req, res) => {
-    const {id} = req.params
-    const {name, address, contact} = req.body
+    const { id } = req.params
+    const { name, address, contact } = req.body
 
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({error: 'No such a staff member found'})
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({ error: 'No such a staff member found' })
     }
 
-    const staff = await Staff.findOneAndUpdate({_id: id}, {
-        ...req.body})
+    const staff = await Staff.findOneAndUpdate({ _id: id }, {
+        ...req.body
+    })
 
-    if(!staff){
-        return res.status(400).json({error: 'Staff member not found'})
+    if (!staff) {
+        return res.status(400).json({ error: 'Staff member not found' })
     }
 
     res.status(200).json(staff)
 }
+
+
+//get statff count
+
+const countTotal = async (req, res) => {
+    try {
+        const count = await Staff.countDocuments();
+        res.json({count});
+    } catch (error) {
+        console.error('Error fetching project count:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
 
 module.exports = {
     getStaffs,
     getStaff,
     createStaff,
     deleteStaff,
-    updateStaff
+    updateStaff,
+    countTotal
 }

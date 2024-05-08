@@ -3,7 +3,8 @@ const { getSales,
          getSale,
          createSale,
          deleteSale,
-         updateSale 
+         updateSale,
+         countTotal 
 } = require('../controllers/salesController')
 // const  requireAuth  = require('../middleware/requireAuth')
 
@@ -25,6 +26,9 @@ router.delete('/:id',deleteSale)
 
 //Update a sale
 router.patch('/:id',updateSale)
+
+router.get('/total/counts', countTotal)
+
 
 
 module.exports = router

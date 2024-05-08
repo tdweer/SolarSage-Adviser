@@ -3,7 +3,8 @@ const { createProject,
         getProjects,
         getProject,
         deleteProject,
-        updateProject
+        updateProject,
+        countTotal
  } = require('../controllers/projectController')
 const  requireAuth  = require('../middleware/requireAuth')
 
@@ -20,7 +21,7 @@ router.get('/:id',requireAuth , getProject)
 
 //Create a new project
 router.post('/',requireAuth ,createProject)
-    
+
 
 //Delete a project
 router.delete('/:id',requireAuth, deleteProject)
@@ -29,6 +30,8 @@ router.delete('/:id',requireAuth, deleteProject)
 //Update a project
 router.patch('/:id',requireAuth ,updateProject)
 
+//dashboard get count
+router.get('/total/counts', countTotal)
 
 
 

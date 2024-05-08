@@ -3,7 +3,8 @@ const { getStaffs,
          getStaff,
          createStaff,
          deleteStaff,
-         updateStaff 
+         updateStaff,
+         countTotal 
 } = require('../controllers/staffController')
 // const  requireAuth  = require('../middleware/requireAuth')
 
@@ -27,5 +28,6 @@ router.delete('/:id',deleteStaff)
 router.patch('/:id',updateStaff)
 
 
+router.get('/total/counts',countTotal)
 
 module.exports = router

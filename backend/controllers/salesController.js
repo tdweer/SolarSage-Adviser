@@ -4,22 +4,22 @@ const mongoose = require('mongoose')
 //get all sales
 const getSales = async (req, res) => {
     // const user_id = req.user._id
-    const sales = await Sales.find({  }).sort({createdAt: -1})
+    const sales = await Sales.find({}).sort({ createdAt: -1 })
 
     res.status(200).json(sales)
 }
 
 // get a single sale
 const getSale = async (req, res) => {
-    const  { id } = req.params
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({error: 'No such a sale not found'})
+    const { id } = req.params
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({ error: 'No such a sale not found' })
     }
 
     const sale = await Sales.findById(id)
 
-    if(!sale){
-        return res.status(404).json({error: 'Sale not found'})
+    if (!sale) {
+        return res.status(404).json({ error: 'Sale not found' })
     }
 
     res.status(200).json(sale)
@@ -27,59 +27,59 @@ const getSale = async (req, res) => {
 
 //create a new sale
 const createSale = async (req, res) => {
-    const {salesid, date, clientid, clientname, productinfo, notes, status} = req.body
+    const { salesid, date, clientid, clientname, productinfo, notes, status, amount } = req.body
 
     let emptyFields = []
 
-    if (!salesid){
+    if (!salesid) {
         emptyFields.push('salesid')
     }
-    if (!date){
-        emptyFields.push('date')
-    }
-    if (!clientid){
+    // if (!date){
+    //     emptyFields.push('date')
+    // }
+    if (!clientid) {
         emptyFields.push('clientid')
     }
-    if (!clientname){
+    if (!clientname) {
         emptyFields.push('clientname')
     }
-    if (!productinfo){
+    if (!productinfo) {
         emptyFields.push('productinfo')
     }
-    if (!notes){
+    if (!notes) {
         emptyFields.push('notes')
     }
-    if (!status){
+    if (!status) {
         emptyFields.push('status')
     }
 
-    if(emptyFields.length > 0 ){
-        return res.status(400).json({error: 'Please fill in all the fields', emptyFields })
+    if (emptyFields.length > 0) {
+        return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
     }
 
 
     //add doc to db
-    try{
+    try {
         // const user_id = req.user._id
-        const sale = await Sales.create({salesid, date, clientid, clientname, productinfo, notes, status})
+        const sale = await Sales.create({ salesid, date, clientid, clientname, productinfo, notes, status, amount })
         res.status(200).json(sale)
-    }catch(error){
-        res.status(400).json({error: error.message})
+    } catch (error) {
+        res.status(400).json({ error: error.message })
     }
 }
 
 //delete a sale
 const deleteSale = async (req, res) => {
-    const {id} = req.params
+    const { id } = req.params
 
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({error: 'No such a sale not found'})
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({ error: 'No such a sale not found' })
     }
 
-    const sale = await Sales.findByIdAndDelete({_id: id})
+    const sale = await Sales.findByIdAndDelete({ _id: id })
 
-    if(!sale){
-        return res.status(400).json({error: 'Sale not found'})
+    if (!sale) {
+        return res.status(400).json({ error: 'Sale not found' })
     }
 
     res.status(200).json(sale)
@@ -87,27 +87,41 @@ const deleteSale = async (req, res) => {
 
 //update a sale
 const updateSale = async (req, res) => {
-    const {id} = req.params
-    const {date, clientid, clientname, productinfo, notes, status} = req.body
+    const { id } = req.params
+    const { date, clientid, clientname, productinfo, notes, status } = req.body
 
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({error: 'No such a sale not found'})
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({ error: 'No such a sale not found' })
     }
 
-    const sale = await Sale.findOneAndUpdate({_id: id}, {
-        ...req.body})
+    const sale = await Sales.findOneAndUpdate({ _id: id }, {
+        ...req.body
+    })
 
-    if(!sale){
-        return res.status(400).json({error: 'Sale not found'})
+    if (!sale) {
+        return res.status(400).json({ error: 'Sale not found' })
     }
 
     res.status(200).json(sale)
 }
+
+
+const countTotal = async (req, res) => {
+    try {
+        const count = await Sales.countDocuments();
+        res.json({count});
+    } catch (error) {
+        console.error('Error fetching project count:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
 
 module.exports = {
     getSales,
     getSale,
     createSale,
     deleteSale,
-    updateSale
+    updateSale,
+    countTotal
 }
