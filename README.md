@@ -5,6 +5,7 @@ Welcome to Solar Sage Adviser! This guide will help you set up and run the proje
 ## Prerequisites
 Node(v20.11.1)  
 Python 3.12.2  
+scikit-learn 1.4.1.post1  
 NPM (10.4.0)  
 
 
@@ -23,7 +24,7 @@ now succesfully React Frontend  running on PORT:3000
 open a new terminal on the IDE  
 cd backend  
 npm install  
-npm install  
+npm start  
 now succesfully Node Backend  running on PORT:4000  
 
 ## setup the flask backend(ML PART)  
@@ -37,6 +38,7 @@ venv\Scripts\activate
 pip install Flask  
 pip install scikit-learn  
 pip install joblib  
+pip install pandas  
   
 python app.py  
 now succesfully flask backend servver run on PORT:5000  
