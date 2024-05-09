@@ -85,39 +85,39 @@ const Drawer = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== 'open'})
 
 export const ClientLogo = () => (
     <Icon>
-        <img src={require('../../assets/icon/clients.png')} height={25} width={25} alt={'icon'}/>
+        <img src={require('../../assets/icon/client1.png')} height={25} width={25} alt={'icon'}/>
     </Icon>
 )
 
 export const AdviserLogo = () => (
     <Icon>
-        <img src={require('../../assets/icon/adviser.png')} height={25} width={25} alt={'icon'}/>
+        <img src={require('../../assets/icon/adviser1.png')} height={25} width={25} alt={'icon'}/>
     </Icon>
 )
 
 export const StaffLogo = () => (
     <Icon>
-        <img src={require('../../assets/icon/staff.png')} height={25} width={25} alt={'icon'}/>
+        <img src={require('../../assets/icon/staff1.png')} height={25} width={25} alt={'icon'}/>
     </Icon>
 )
 
 export const SalesLogo = () => (
     <Icon>
-        <img src={require('../../assets/icon/sales.png')} height={25} width={25} alt={'icon'}/>
+        <img src={require('../../assets/icon/sale1.png')} height={25} width={25} alt={'icon'}/>
     </Icon>
 )
 
 
 export const ProjectLogo = () => (
     <Icon>
-        <img src={require('../../assets/icon/project.png')} height={25} width={25} alt={'icon'}/>
+        <img src={require('../../assets/icon/project1.png')} height={25} width={25} alt={'icon'}/>
     </Icon>
 )
 
 
 export const DashIcon = () => (
     <Icon>
-        <img src={require('../../assets/icon/apps.png')} height={25} width={25} style={{padding:2}} alt={'icon'}/>
+        <img src={require('../../assets/icon/dashboard.png')} height={25} width={25} style={{padding:2}} alt={'icon'}/>
     </Icon>
 )
 
