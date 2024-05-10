@@ -1,8 +1,5 @@
 import unittest
-from unittest.mock import patch
 from app import app, model, cleanSolar
-import pandas as pd
-import numpy as np
 
 class TestFlaskApp(unittest.TestCase):
     def setUp(self):

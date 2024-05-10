@@ -25,9 +25,8 @@ const AdminDashPage = () => {
     }, []);
 
     //STATE CREATE -----------------------------------------------------------
-    let [total_product, setTotal_Product] = useState(0);
+    let [total_Project, setTotal_Project] = useState(0);
     let [total_client, setTotal_Client] = useState(0);
-    let [total_employee, setTotal_Employee] = useState(0);
     let [total_staff, setTotal_Staff] = useState(0);
     let [total_sales, setTotal_Sales] = useState(0);
 
@@ -218,7 +217,7 @@ const AdminDashPage = () => {
                     return response.json();
                 })
                 .then(data => {
-                    setTotal_Product(data.count);
+                    setTotal_Project(data.count);
                 }).catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
             });
@@ -272,7 +271,7 @@ const AdminDashPage = () => {
             <div className={"w100w h150px container flex_dir_row"}>
                 <AxAdminDashCard
                     TITLE={"Total Projects"}
-                    VALUE={total_product}
+                    VALUE={total_Project}
                     IMG={require('../../../assets/icon/project (1).png')}/>
                 <div className={"w2"}/>
                 <AxAdminDashCard TITLE={"Total Client"} VALUE={total_client}
