@@ -49,7 +49,7 @@ function AdminClientPage() {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             const data = await response.json();
-            fetchClients()
+            await fetchClients()
             if (data){
                 alert("Client Save Successfully!")
             }else {
@@ -88,7 +88,7 @@ function AdminClientPage() {
 
             console.log(response)
 
-            fetchClients();
+            await fetchClients();
         } catch (error) {
             console.error('Error deleting client:', error.message);
             throw error;
@@ -116,7 +116,7 @@ function AdminClientPage() {
 
             const data = await response.json();
             console.log(data);
-            fetchClients(); // Refresh the client list
+            await fetchClients(); // Refresh the client list
         } catch (error) {
             console.error('Error updating client:', error);
             // Handle error
@@ -137,11 +137,10 @@ function AdminClientPage() {
                     }} id="outlined-basic" label="Client ID" variant="outlined" size="small" sx={{m: 1}}/>
 
                     <Button variant="outlined" size="medium"
-                        // startIcon={searchIcon()}
                             onClick={searchClient}
                             sx={{height: 40, mt: 1}} className={"btnSearch"}
                     >
-                        Search
+                        Search Client
                     </Button>
 
                     <TextField value={name} onChange={(event) => {
