@@ -1,14 +1,15 @@
 import * as React from 'react';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {Button, TextField} from '@mui/material';
 import {DataGrid} from '@mui/x-data-grid';
 import {Box} from '@mui/system';
 import '../../../assets/theme/AxTheme.css';
+import {deleteStaffAPI, getAllStaffAPI, saveStaffAPI, searchStaffAPI, updateStaffAPI} from "../../../api/rootAPI";
 
 function StaffPage() {
 
     const columns = [
-        {field: 'clientId', headerName: 'StaffID', width: 100},
+        {field: 'staffid', headerName: 'StaffID', width: 100},
         {field: 'name', headerName: 'Staff Name', width: 150},
         {field: 'address', headerName: 'Staff Address', width: 150},
         {field: 'contact', headerName: 'Staff Contact', width: 200},
@@ -19,6 +20,99 @@ function StaffPage() {
     const [address, setAddress] = useState("");
     const [contact, setContact] = useState("");
     const [tableData, setTableData] = useState([]);
+
+    const getAllStaff = async () => {
+        const response = await fetch(getAllStaffAPI)
+        const json = await response.json();
+        setTableData(null);
+        setTableData(json);
+    }
+    useEffect(() => {
+        getAllStaff();
+    }, []);
+    const saveFunction = async () => {
+
+        try {
+            const response = await fetch(saveStaffAPI, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    staffid: id,
+                    name: name,
+                    address: address,
+                    contact: Number(contact)
+                })
+            });
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const data = await response.json();
+            await getAllStaff();
+            if (data) {
+                alert("Staff Save Successfully!")
+            } else {
+                alert("Staff Save Unsuccessfully!")
+            }
+        } catch (error) {
+            return {error: 'Failed to save project'};
+        }
+    }
+    const searchFunction = async () => {
+        try {
+            const response = await fetch(`${searchStaffAPI}` + `${id}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const data = await response.json();
+            setContact(data.contact);
+            setAddress(data.address);
+            setName(data.name)
+        } catch (error) {
+            console.error('Error searching Staff:', error);
+            return {error: 'Failed to search Staff'};
+        }
+    }
+    const updateFunction = async () => {
+        try {
+            const response = await fetch(`${updateStaffAPI}` + `${id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    staffid: id,
+                    name: name,
+                    address: address,
+                    contact: contact,
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            getAllStaff();
+        } catch (error) {
+            console.error('Error updating staff:', error);
+            // Handle error
+            return {error: 'Failed to update staff'};
+        }
+    }
+    const deleteFunction = async () => {
+        try {
+            const response = await fetch(`${deleteStaffAPI}` + `${id}`, {
+                method: 'DELETE'
+            });
+            await getAllStaff();
+        } catch (error) {
+            console.error('Error deleting staff:', error.message);
+            throw error;
+        }
+    };
+
 
     return (
 
@@ -34,7 +128,7 @@ function StaffPage() {
 
                     <Button variant="outlined" size="medium"
                         // startIcon={searchIcon()}
-                        // onClick={searchEmployee}
+                            onClick={searchFunction}
                             sx={{height: 40}} className={"btnSearch"}
                     >
                         Search
@@ -53,18 +147,22 @@ function StaffPage() {
                     }} id="outlined-basic" label="Staff Contact" variant="outlined" size="small" sx={{m: 1}}/>
 
                     <Button variant="outlined" size="medium" color='info'
-                            sx={{m: 1, width: 100}} className={"btnSave"}>
+                            sx={{m: 1, width: 100}} className={"btnSave"}
+                            onClick={saveFunction}>
                         Save
                     </Button>
 
                     <Button variant="outlined" size="medium" color='info'
                             sx={{m: 1, width: 100}}
+                            onClick={updateFunction}
                             className={"btnUpdate"}>
                         Update
                     </Button>
 
                     <Button variant="outlined" size="medium" color='info' sx={{m: 1, width: 100}}
-                            className={"btnDelete"}>
+                            className={"btnDelete"}
+                            onClick={deleteFunction}
+                    >
                         Delete
                     </Button>
 
@@ -78,12 +176,10 @@ function StaffPage() {
                             pageSize={6}
                             rowsPerPageOptions={[5]}
                             checkboxSelection
-                            getRowId={(row) => row.id}
+                            getRowId={(row) => row.staffid}
                         />
                     </div>
                 </Box>
-
-
             </div>
         </>
     )

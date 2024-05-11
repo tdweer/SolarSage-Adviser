@@ -5,7 +5,8 @@ const Schema = mongoose.Schema
 const staffSchema = new Schema({
     salesid: {
         type: Number,
-        required: true
+        required: true,
+        unique: true
     },
 
     date: {

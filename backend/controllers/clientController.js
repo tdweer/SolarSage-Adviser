@@ -5,10 +5,8 @@ const SendSMS = require('../controllers/SendSMS')
 const getClients = async (req, res) => {
     //const user_id = req.user._id
     const clients = await Client.find({}).sort({ createdAt: -1 })
-
     res.status(200).json(clients)
 }
-
 // get a single client
 const getClient = async (req, res) => {
     const { id } = req.params
@@ -24,7 +22,6 @@ const getClient = async (req, res) => {
 
     res.status(200).json(client)
 }
-
 //add a new client
 const createClient = async (req, res) => {
     const { id, name, address, contact } = req.body
@@ -39,7 +36,6 @@ const createClient = async (req, res) => {
         res.status(400).json({ error: error.message })
     }
 }
-
 //delete a client
 const deleteClient = async (req, res) => {
     const { id } = req.params;
@@ -59,8 +55,6 @@ const deleteClient = async (req, res) => {
         res.status(500).json({ message: 'Server Error' });
     }
 }
-
-
 const updateClient = async (req, res) => {
     const { id } = req.params;
 
@@ -81,7 +75,6 @@ const updateClient = async (req, res) => {
         res.status(500).json({ message: 'Server Error' });
     }
 }
-
 const clientSearch = async (req, res) => {
     const { id } = req.params;
     try {
@@ -95,8 +88,6 @@ const clientSearch = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 }
-
-
 const countClients = async (req, res) => {
     try {
         const count = await Client.countDocuments();
@@ -106,11 +97,6 @@ const countClients = async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 };
-
-
-
-
-
 
 module.exports = {
     getClient,
