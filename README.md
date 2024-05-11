@@ -11,8 +11,9 @@ NPM (10.4.0)
 
 
 ## Clone the Repository
-```md git clone https://github.com/tdweer/PUSL3190-SolarSage-Adviser-WA.git```
-##
+```  
+git clone https://github.com/tdweer/PUSL3190-SolarSage-Adviser-WA.git
+```
 
 ## Setup Node 
 
