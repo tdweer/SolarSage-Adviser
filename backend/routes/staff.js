@@ -16,16 +16,16 @@ const router = express.Router()
 router.get('/', getStaffs)
 
 //Get a single staff member
-router.get('/:id', getStaff)
+router.get('/:staffid', getStaff)
 
 //Create a new staff member
 router.post('/',createStaff)
 
 //Delete a staff member
-router.delete('/:id',deleteStaff)
+router.delete('/:staffid',deleteStaff)
 
 //Update a staff member
-router.patch('/:id',updateStaff)
+router.patch('/:staffid',updateStaff)
 
 
 router.get('/total/counts',countTotal)

@@ -5,7 +5,8 @@ const Schema = mongoose.Schema
 const projectSchema = new Schema({
     pid: {
         type: Number,
-        required: true
+        required: true,
+        unique: true
     },
 
     title: {

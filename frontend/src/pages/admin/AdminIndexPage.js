@@ -24,6 +24,8 @@ import ProjectPage from "./admin-pages/ProjectPage";
 import StaffPage from "./admin-pages/StaffPage";
 import SalesPage from "./admin-pages/SalesPage";
 import Adviser from "./admin-pages/Adviser";
+import './admin.css';
+import {  UserButton } from "@clerk/clerk-react";
 
 const drawerWidth = 240;
 
@@ -139,7 +141,7 @@ export default function AdminIndexPage() {
         <Box sx={{display: 'flex'}}>
             <CssBaseline/>
             <AppBar position="fixed" open={open}>
-                <Toolbar>
+                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -153,8 +155,9 @@ export default function AdminIndexPage() {
                         <MenuIcon/>
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        SolarSage Adviser
+                        Solar Sage Adviser
                     </Typography>
+                    <UserButton />
                 </Toolbar>
             </AppBar>
             <Drawer variant="permanent" open={open}>
@@ -234,7 +237,7 @@ export default function AdminIndexPage() {
                                 }}>
                                 <ClientLogo/>
                             </ListItemIcon>
-                            <ListItemText sx={{ml: 1}} primary="Customers"/>
+                            <ListItemText sx={{ml: 1}} primary="Client"/>
                         </ListItemButton>
                     </ListItem>
                     <ListItem disablePadding sx={{display: "block"}} onClick={() => setMenuData("StaffPage")}>

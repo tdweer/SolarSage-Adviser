@@ -35,6 +35,7 @@ app.use('/api/staff', staffRoutes);
 app.use('/api/sales', salesRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/email', emailRouter);
+
 // Route to get all deposits
 app.get('/api/deposits', async (req, res) => {
     try {
@@ -45,7 +46,6 @@ app.get('/api/deposits', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
-
 
 // Route to create a new deposit
 app.post('/api/deposits', async (req, res) => {
@@ -60,8 +60,7 @@ app.post('/api/deposits', async (req, res) => {
         console.error('Error creating deposit:', error);
         res.status(500).send('Internal Server Error');
     }
-})
-
+});
 
 // Route to get the count of projects
 app.get('/api/projects', async (req, res) => {
@@ -74,15 +73,11 @@ app.get('/api/projects', async (req, res) => {
     }
 });
 
-
-
 // connect to db
 mongoose
-    .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect(process.env.MONGO_URI)
     .then(() => {
         console.log('Connected to database');
-
-        // listen to port
         app.listen(process.env.PORT, () => {
             console.log('Listening for requests on port', process.env.PORT);
         });

@@ -30,7 +30,6 @@ function AdminClientPage() {
         console.log(json)
         setTableData(json);
     }
-
     const saveClient = async () => {
         try {
             const response = await fetch('http://localhost:4000/api/clients', {
@@ -56,11 +55,9 @@ function AdminClientPage() {
                 alert("Client Save Unsuccessfully!")
             }
         } catch (error) {
-            console.error('Error saving client:', error);
             return { error: 'Failed to save client' };
         }
     }
-
     const searchClient = async () => {
         try {
             const response = await fetch(`http://localhost:4000/api/clients/client/searchId/${id}`);
@@ -77,8 +74,6 @@ function AdminClientPage() {
             return {error: 'Failed to search client'};
         }
     }
-
-
     const deleteClient = async () => {
         try {
             const response = await fetch(`http://localhost:4000/api/clients/delete/${id}`, {
@@ -94,7 +89,6 @@ function AdminClientPage() {
             throw error;
         }
     };
-
     const updateClient = async () => {
         try {
             const response = await fetch(`http://localhost:4000/api/clients/update/${id}`, {

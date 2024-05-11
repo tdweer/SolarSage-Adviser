@@ -1,0 +1,4 @@
+.adviserContainer {
+    height: 100vh !important; /* Set height to 100% of the viewport height */
+    overflow: auto !important; /* Enable scrolling */
+}
