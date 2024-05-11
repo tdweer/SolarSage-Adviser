@@ -31,8 +31,8 @@ router.patch('/:salesid', updateSale)
 //admin page total count
 router.get('/total/counts', countTotal)
 
-//Get income
-router.get('/income',getIncome)
+// //Get income
+// router.get('/income',getIncome)
 
 //search
 router.get('/sales/searchId/:id', saleSearch);
