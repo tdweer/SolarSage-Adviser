@@ -36,7 +36,7 @@ def predict():
         predicted_cost = model.predict(input_data)
         formatted_predicted_cost = "{:.2f}".format(predicted_cost[0])
 
-        print('=======================', predicted_cost)
+        print('=================', predicted_cost)
         return jsonify({'predicted_cost': formatted_predicted_cost})
     except Exception as e:
         import traceback
