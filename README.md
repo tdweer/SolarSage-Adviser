@@ -49,7 +49,7 @@ now succesfully flask backend servver run on PORT:5000
 Access the application in your web browser at http://localhost:3000.  
   
 # Additional Notes
- #PUSL3190 #SOLARSAGEADVISER #costprediction  
+ #SOLARSAGEADVISER #costprediction  
  #solararecommendation #machinelearn  
 
  # License
